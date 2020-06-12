@@ -1,6 +1,10 @@
 package com.raphael.api.ApiSybase.domain.model;
 
+import com.raphael.api.ApiSybase.util.DateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -15,7 +19,6 @@ public class PessoaFisica {
     private String rg;
     @Column(name = "dt_nascimento")
     private Date dataNascimento;
-
 
 
     public String getCpf() {
@@ -43,10 +46,12 @@ public class PessoaFisica {
     }
 
     public Date getDataNascimento() {
+
         return dataNascimento;
     }
 
     public void setDataNascimento(Date dataNascimento) {
+
         this.dataNascimento = dataNascimento;
     }
 
