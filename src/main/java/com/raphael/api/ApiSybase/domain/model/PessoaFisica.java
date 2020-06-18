@@ -4,6 +4,7 @@ import com.raphael.api.ApiSybase.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
@@ -17,6 +18,8 @@ public class PessoaFisica {
     private Integer iPessoasFisicas;
     private String cpf;
     private String rg;
+
+    @Temporal(TemporalType.DATE)
     @Column(name = "dt_nascimento")
     private Date dataNascimento;
 

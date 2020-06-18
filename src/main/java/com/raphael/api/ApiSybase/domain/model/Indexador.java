@@ -1,5 +1,6 @@
 package com.raphael.api.ApiSybase.domain.model;
 
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
@@ -13,26 +14,34 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "indexadores")
-public class Indexador implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Indexador  {
 
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "i_moedas")
+    private Moeda moeda;
+
+    @Id
+    @Temporal(TemporalType.DATE)
     @Column(name = "data_idx")
-    private OffsetDateTime dataIndexador;
+    private Date dataIndexador;
 
     @Column(name = "valor_idx")
     private BigDecimal valorIndexador;
 
-    @Id
-    @JsonBackReference
-    @ManyToOne
-    @JoinColumn(name = "i_moedas")
-    private Moeda moeda;
+    public Moeda getMoeda() {
+        return moeda;
+    }
 
-    public OffsetDateTime getDataIndexador() {
+    public void setMoeda(Moeda moeda) {
+        this.moeda = moeda;
+    }
+
+    public Date getDataIndexador() {
         return dataIndexador;
     }
 
-    public void setDataIndexador(OffsetDateTime dataIndexador) {
+    public void setDataIndexador(Date dataIndexador) {
         this.dataIndexador = dataIndexador;
     }
 
@@ -44,13 +53,16 @@ public class Indexador implements Serializable {
         this.valorIndexador = valorIndexador;
     }
 
-//    public Moeda getMoeda() {
-//        return moeda;
-//    }
-//
-//    public void setMoeda(Moeda moeda) {
-//        this.moeda = moeda;
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Indexador indexador = (Indexador) o;
+        return moeda.equals(indexador.moeda);
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(moeda);
+    }
 }
