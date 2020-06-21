@@ -21,6 +21,10 @@ public class Pessoa {
     private String tipoPessoa;
     private String email;
 
+    @Column(name = "ddd_cel")
+    private String dddCelular;
+    private String celular;
+
     @JoinColumn(name = "i_pessoas")
     @OneToOne
     private PessoaFisica pessoaFisica;
@@ -28,6 +32,9 @@ public class Pessoa {
     @JoinColumn(name = "i_pessoas")
     @OneToOne
     private PessoaJuridica pessoaJuridica;
+
+
+
 
     public Integer getiPessoas() {
         return iPessoas;
@@ -77,6 +84,23 @@ public class Pessoa {
         this.email = email;
     }
 
+
+    public String getDddCelular() {
+        return dddCelular;
+    }
+
+    public void setDddCelular(String dddCelular) {
+        this.dddCelular = dddCelular;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
     public PessoaFisica getPessoaFisica() {
         return pessoaFisica;
     }
@@ -92,6 +116,7 @@ public class Pessoa {
     public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
         this.pessoaJuridica = pessoaJuridica;
     }
+
 
     @Override
     public boolean equals(Object o) {
