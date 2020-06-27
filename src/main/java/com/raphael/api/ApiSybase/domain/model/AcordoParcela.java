@@ -26,16 +26,16 @@ public class AcordoParcela {
     private Date dataVencimento;
     private String flag;
 
-    @Column(name = "valor_tributo")
+    @Column(name = "valor_tributo", scale = 15, precision = 4)
     private BigDecimal ValorTributo;
 
-    @Column(name = "valor_correcao")
+    @Column(name = "valor_correcao",  scale = 15, precision = 4)
     private BigDecimal ValorCorrecao;
 
-    @Column(name = "valor_juro")
+    @Column(name = "valor_juro",  scale = 15, precision = 4)
     private BigDecimal ValorJuro;
 
-    @Column(name = "valor_multa")
+    @Column(name = "valor_multa",  scale = 15, precision = 4)
     private BigDecimal valorMulta;
 
     @OneToOne

@@ -1,5 +1,7 @@
 package com.raphael.api.ApiSybase.domain.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -17,6 +19,7 @@ public class Rua {
     private Integer iCidades;
 
     private String cep;
+
 
     public Integer getiRuas() {
         return iRuas;

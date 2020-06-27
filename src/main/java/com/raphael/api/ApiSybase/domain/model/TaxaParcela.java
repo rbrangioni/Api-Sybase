@@ -12,7 +12,7 @@ public class TaxaParcela {
     @Column(name = "num_parc")
     private Integer numeroParcela;
 
-    @Column(name = "valor_taxa")
+    @Column(name = "valor_taxa",  scale = 15, precision = 4)
     private BigDecimal valorTaxa;
 
 
