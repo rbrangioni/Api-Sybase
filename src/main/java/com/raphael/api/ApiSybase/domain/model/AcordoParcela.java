@@ -1,11 +1,8 @@
 package com.raphael.api.ApiSybase.domain.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.Date;
 
 @Entity

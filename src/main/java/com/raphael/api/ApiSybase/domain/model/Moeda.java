@@ -10,7 +10,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "moedas")
-public class Moeda  {
+public class Moeda  implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "i_moedas")
@@ -22,7 +23,7 @@ public class Moeda  {
 
     @OneToMany(mappedBy = "moeda")
    // @JsonManagedReference
-    private List<Indexador> indexador = new ArrayList<Indexador>();
+    private List<Indexador> indexador = new ArrayList<>();
 
     public Integer getiMoedas() {
         return iMoedas;

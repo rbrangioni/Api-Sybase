@@ -6,15 +6,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 
 @Entity
 @Table(name = "indexadores")
-public class Indexador  {
+public class Indexador  implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @ManyToOne
     @JsonBackReference

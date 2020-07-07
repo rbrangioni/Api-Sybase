@@ -1,11 +1,16 @@
 package com.raphael.api.ApiSybase.domain.model;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "pessoas")
-public class Pessoa {
+public class Pessoa implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,11 +31,13 @@ public class Pessoa {
     private String celular;
 
     @JoinColumn(name = "i_pessoas")
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST})
+    @NotFound(action = NotFoundAction.IGNORE)
     private PessoaFisica pessoaFisica;
 
     @JoinColumn(name = "i_pessoas")
     @OneToOne
+    @NotFound(action = NotFoundAction.IGNORE)
     private PessoaJuridica pessoaJuridica;
 
 

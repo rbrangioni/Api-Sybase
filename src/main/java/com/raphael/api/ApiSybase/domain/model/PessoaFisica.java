@@ -1,17 +1,16 @@
 package com.raphael.api.ApiSybase.domain.model;
 
-import com.raphael.api.ApiSybase.util.DateUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "pessoas_fisicas")
-public class PessoaFisica {
+public class PessoaFisica implements Serializable {
+    private static final long serialVersionUID = 1L;
+
 
     @Id
     @Column(name = "i_pessoas")
